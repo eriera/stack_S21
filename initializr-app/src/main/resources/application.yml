@@ -1204,24 +1204,24 @@ initializr:
         format: build
       default: false
       action: /pom.xml
-    - name: Gradle Project
-      id: gradle-project
-      description: Generate a Gradle based project archive
-      sts-id: gradle.zip
-      tags:
-        build: gradle
-        format: project
-      default: false
-      action: /starter.zip
-    - name: Gradle Config
-      id: gradle-build
-      description: Generate a Gradle build file
-      sts-id: build.gradle
-      tags:
-        build: gradle
-        format: build
-      default: false
-      action: /build.gradle
+#    - name: Gradle Project
+#      id: gradle-project
+#      description: Generate a Gradle based project archive
+#      sts-id: gradle.zip
+#      tags:
+#        build: gradle
+#        format: project
+#      default: false
+#      action: /starter.zip
+#    - name: Gradle Config
+#      id: gradle-build
+#      description: Generate a Gradle build file
+#      sts-id: build.gradle
+#      tags:
+#        build: gradle
+#        format: build
+#      default: false
+#      action: /build.gradle
   packagings:
     - name: Jar
       id: jar
@@ -1232,20 +1232,22 @@ initializr:
   javaVersions:
     - id: 1.8
       default: true
-    - id: 1.7
+    - id: 1.11
       default: false
-    - id: 1.6
-      default: false
+#    - id: 1.7
+#      default: false
+#    - id: 1.6
+#      default: false
   languages:
     - name: Java
       id: java
       default: true
-    - name: Kotlin
-      id: kotlin
-      default: false
-    - name: Groovy
-      id: groovy
-      default: false
+#    - name: Kotlin
+#      id: kotlin
+#      default: false
+#    - name: Groovy
+#      id: groovy
+#      default: false
   bootVersions:
     - name : Latest SNAPSHOT
       id: 1.2.4.BUILD-SNAPSHOT
@@ -1256,3 +1258,14 @@ initializr:
     - name: 1.1.12
       id: 1.1.12.RELEASE
       default: false
+layerConfig:
+  layers:
+  - layername: capa1
+    classname: clase1
+  - layername: capa2
+    classname: clase2
+  - layername: capa3
+    classname: clase3
+  - layername: capa4
+    classname: clase4
+

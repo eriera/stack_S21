@@ -89,7 +89,7 @@
                     <div class="form-group groupid-form-group">
                         <label for="groupId" class="control-label">{{groupId.title}}</label>
                         <input tabindex="4" id="groupId" class="form-control" type="text" value="{{groupId.content}}"
-                               name="groupId">
+                               name="groupId" disabled="disabled">
                     </div>
                     <div class="form-group artifactid-form-group">
                         <label for="artifactId" class="control-label">{{artifactId.title}}</label>
@@ -127,23 +127,23 @@
                 </div>
                 <div class="col-sm-12 col-md-6">
 
-                    <h2>Project Type</h2>
-                    <p>Select type to generate and dependencies will be auto selected for you</p>
+                    <!--<h2>Project Type</h2>-->
+                    <!--<p>Select type to generate and dependencies will be auto selected for you</p>-->
 
-                    <!-- begin custom stuff -->
-                    <div class="form-group">
-                        <label for="archetype" class="control-label">Select a Starter Archetype</label>&nbsp;
-                        <select id="archetype" name="archetype">
-                            <option value="CUSTOM">Blank Project</option>
-                            <option value="LIBRARY">Library</option>
-                            <option value="NOTHING">---------</option>
-                            <option value="MICRO">Microservice</option>
-                            <option value="MICRO_RABBIT">Microservice (Rabbit)</option>
-                            <option value="MICRO_KAFKA">Microservice (Kafka)</option>
-                            <option value="NOTHING">---------</option>
-                            <option value="APP_WEB_DATA">App Module (Web/Data)</option>
-                        </select>
-                    </div>
+                    <!--&lt;!&ndash; begin custom stuff &ndash;&gt;-->
+                    <!--<div class="form-group">-->
+                        <!--<label for="archetype" class="control-label">Select a Starter Archetype</label>&nbsp;-->
+                        <!--<select id="archetype" name="archetype">-->
+                            <!--<option value="CUSTOM">Blank Project</option>-->
+                            <!--<option value="LIBRARY">Library</option>-->
+                            <!--<option value="NOTHING">-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</option>-->
+                            <!--<option value="MICRO">Microservice</option>-->
+                            <!--<option value="MICRO_RABBIT">Microservice (Rabbit)</option>-->
+                            <!--<option value="MICRO_KAFKA">Microservice (Kafka)</option>-->
+                            <!--<option value="NOTHING">-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</option>-->
+                            <!--<option value="APP_WEB_DATA">App Module (Web/Data)</option>-->
+                        <!--</select>-->
+                    <!--</div>-->
 
                     <h2>Dependencies</h2>
 

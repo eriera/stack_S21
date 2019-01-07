@@ -22,10 +22,7 @@ import javax.cache.configuration.MutableConfiguration;
 import javax.cache.expiry.CreatedExpiryPolicy;
 import javax.cache.expiry.Duration;
 
-import io.spring.initializr.generator.ProjectGenerator;
-import io.spring.initializr.generator.ProjectRequestPostProcessor;
-import io.spring.initializr.generator.ProjectRequestResolver;
-import io.spring.initializr.generator.ProjectResourceLocator;
+import io.spring.initializr.generator.*;
 import io.spring.initializr.metadata.DependencyMetadataProvider;
 import io.spring.initializr.metadata.InitializrMetadata;
 import io.spring.initializr.metadata.InitializrMetadataBuilder;
@@ -161,6 +158,13 @@ public class InitializrAutoConfiguration {
 					.setStoreByValue(false)
 					.setManagementEnabled(true).setStatisticsEnabled(true);
 		}
+
+	}
+
+	@Bean
+	@ConditionalOnMissingBean
+	public LayerConfig projectLayerConfig() {
+		return new LayerConfig();
 
 	}
 

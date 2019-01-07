@@ -96,6 +96,9 @@ public class ProjectGenerator {
     @Autowired(required = false)
     private VcsService githubVcsService;
 
+	@Autowired
+	private LayerConfig layers;
+
 
     @Value("${TMPDIR:.}/initializr")
 	private String tmpdir;
@@ -250,6 +253,8 @@ public class ProjectGenerator {
 		File resources = new File(dir, "src/main/resources");
 		resources.mkdirs();
 
+		generateLayers(dir, model, request);
+
 
         write(new File(resources, "application.yml"), "application.yml", model);
 
@@ -332,6 +337,20 @@ public class ProjectGenerator {
 			model.put("build", "gradle");
 		}
 		write(new File(dir, ".gitignore"), "gitignore.tmpl", model);
+	}
+
+	protected void generateLayers(File dir, Map<String, Object> model, ProjectRequest request){
+		layers.getLayers().stream()
+				.forEach(p->{
+					Map<String,Object> newMap = new HashMap<>();
+					newMap.put("className",p.getClassname());
+					newMap.put("packageName",model.get("packageName") + "." + p.getLayername());
+					File src = new File(new File(dir, "src/main/java/" +
+							request.getPackageName().replace(".", "/")),p.getLayername());
+					src.mkdirs();
+					write(new File(src, p.getClassname() + ".java"), "CommonClass.java", newMap);
+				});
+
 	}
 
 	/**
