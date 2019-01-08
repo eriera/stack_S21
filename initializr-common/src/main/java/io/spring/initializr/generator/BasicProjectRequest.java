@@ -45,6 +45,7 @@ public class BasicProjectRequest {
 	private String javaVersion;
 	private boolean initDocker;
     private boolean initGit;
+    private boolean initExample;
 
 	// The base directory to create in the archive - no baseDir by default
 	private String baseDir;
@@ -194,4 +195,12 @@ public class BasicProjectRequest {
     boolean hasStyle(String style) {
         return this.style != null && this.style.contains(style);
     }
+
+	public boolean isInitExample() {
+		return initExample;
+	}
+
+	public void setInitExample(boolean initExample) {
+		this.initExample = initExample;
+	}
 }

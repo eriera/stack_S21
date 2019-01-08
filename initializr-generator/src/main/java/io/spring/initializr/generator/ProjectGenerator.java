@@ -253,7 +253,9 @@ public class ProjectGenerator {
 		File resources = new File(dir, "src/main/resources");
 		resources.mkdirs();
 
-		generateLayers(dir, model, request);
+		if(request.isInitExample()) {
+			generateLayers(dir, model, request);
+		}
 
 
         write(new File(resources, "application.yml"), "application.yml", model);
@@ -348,7 +350,7 @@ public class ProjectGenerator {
 					File src = new File(new File(dir, "src/main/java/" +
 							request.getPackageName().replace(".", "/")),p.getLayername());
 					src.mkdirs();
-					write(new File(src, p.getClassname() + ".java"), "CommonClass.java", newMap);
+					write(new File(src, p.getClassname() + ".java"), p.getTemplate(), newMap);
 				});
 
 	}

@@ -1262,12 +1262,14 @@ initializr:
     value: com.ues21.edu
 layerConfig:
   layers:
-  - layername: capa1
+  - layername: dao
     classname: clase1
-  - layername: capa2
+    template: template1.java
+  - layername: business
     classname: clase2
-  - layername: capa3
-    classname: clase3
-  - layername: capa4
-    classname: clase4
+    template: template2.java
+#  - layername: capa3
+#    classname: clase3
+#  - layername: capa4
+#    classname: clase4
 

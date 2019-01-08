@@ -89,6 +89,7 @@ public abstract class AbstractInitializrController {
 
 		model.put("initGit", true);
 		model.put("initDocker", true);
+		model.put("initExample", true);
 
 		// Google analytics support
 		model.put("trackingCode",
