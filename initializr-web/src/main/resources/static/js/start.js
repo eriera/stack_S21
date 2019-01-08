@@ -193,6 +193,7 @@ $(function () {
             }
         });
     };
+    var groupIdN = $("#groupId").val();
     var generatePackageName = function() {
         var groupId = $("#groupId").val();
         var artifactId = $("#artifactId").val();
@@ -325,8 +326,9 @@ $(function () {
     }
 
     function alignArtifactAndPackageNames() {
-        $("#packageName").val(currentPackageName + '.' + (currentDomainName ? currentDomainName + '.' : '') + getNameValueParsed().toLowerCase());
-        $("#groupId").val(currentPackageName);
+       // $("#packageName").val(currentPackageName + '.' + (currentDomainName ? currentDomainName + '.' : '') + getNameValueParsed().toLowerCase());
+       $("#packageName").val(groupIdN +'.'+ getNameValueParsed().toLowerCase());
+       // $("#groupId").val(currentPackageName);
     }
 
     function setDefaultPackageName(defaultPkgName) {
