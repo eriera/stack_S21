@@ -1260,6 +1260,7 @@ initializr:
       default: false
   groupId:
     value: com.ues21.edu
+    # Configuración de Nombres de capas, clases y templates.
 layerConfig:
   layers:
   - layername: dao
