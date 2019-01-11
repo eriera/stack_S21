@@ -18,7 +18,7 @@ package io.spring.initializr.actuate.autoconfigure;
 
 import io.spring.initializr.actuate.metric.ProjectGenerationMetricsListener;
 
-import org.springframework.boot.actuate.metrics.CounterService;
+//import org.springframework.boot.actuate.metrics.CounterService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -33,8 +33,8 @@ public class InitializrMetricsConfiguration {
 
 	@Bean
 	public ProjectGenerationMetricsListener metricsListener(
-			CounterService counterService) {
-		return new ProjectGenerationMetricsListener(counterService);
+			Object obj) {
+		return new ProjectGenerationMetricsListener();
 	}
 
 }

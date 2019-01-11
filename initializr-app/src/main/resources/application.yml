@@ -34,7 +34,9 @@ logging:
     org.springframework.core.env: warn
     org.springframework.jndi: warn
     org.springframework.boot.autoconfigure.security: info
-
+    org.springframework.web: debug
+    io.spring.initializr: debug
+    
 server:
   compression:
     enabled: true
@@ -1260,7 +1262,7 @@ initializr:
       default: false
   groupId:
     value: com.ues21.edu
-layerConfig:
+layer-config:
   layers:
   - layername: dao
     classname: clase1

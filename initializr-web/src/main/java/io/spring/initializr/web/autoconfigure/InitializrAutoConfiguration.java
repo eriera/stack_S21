@@ -40,7 +40,7 @@ import org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration;
 import org.springframework.boot.autoconfigure.cache.JCacheManagerCustomizer;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.bind.RelaxedPropertyResolver;
+//import org.springframework.boot.bind.RelaxedPropertyResolver;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -105,11 +105,14 @@ public class InitializrAutoConfiguration {
 	@Bean
 	@ConditionalOnMissingBean
 	public TemplateRenderer templateRenderer(Environment environment) {
-		RelaxedPropertyResolver resolver = new RelaxedPropertyResolver(environment,
-				"spring.mustache.");
-		boolean cache = resolver.getProperty("cache", Boolean.class, true);
+//		RelaxedPropertyResolver resolver = new RelaxedPropertyResolver(environment,
+//				"spring.mustache.");
+//		boolean cache = resolver.getProperty("cache", Boolean.class, true);
+//		TemplateRenderer templateRenderer = new TemplateRenderer();
+//		templateRenderer.setCache(cache);
+//		return templateRenderer;
 		TemplateRenderer templateRenderer = new TemplateRenderer();
-		templateRenderer.setCache(cache);
+		templateRenderer.setCache(true);
 		return templateRenderer;
 	}
 

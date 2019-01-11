@@ -24,7 +24,7 @@ import io.spring.initializr.generator.ProjectRequest;
 import io.spring.initializr.metadata.Dependency;
 import io.spring.initializr.util.Agent;
 
-import org.springframework.boot.actuate.metrics.CounterService;
+//import org.springframework.boot.actuate.metrics.CounterService;
 import org.springframework.context.event.EventListener;
 import org.springframework.util.StringUtils;
 
@@ -36,11 +36,13 @@ import org.springframework.util.StringUtils;
  */
 public class ProjectGenerationMetricsListener {
 
+/*
 	private final CounterService counterService;
 
 	public ProjectGenerationMetricsListener(CounterService counterService) {
 		this.counterService = counterService;
 	}
+*/
 
 	@EventListener
 	public void onGeneratedProject(ProjectGeneratedEvent event) {
@@ -121,9 +123,11 @@ public class ProjectGenerationMetricsListener {
 		}
 	}
 
+
 	protected void increment(String key) {
-		counterService.increment(key);
+		//counterService.increment(key);
 	}
+
 
 	protected String key(String part) {
 		return "initializr." + part;

@@ -40,7 +40,7 @@ import org.springframework.retry.support.RetryTemplate;
  */
 @Configuration
 @EnableConfigurationProperties(StatsProperties.class)
-@ConditionalOnProperty("initializr.stats.elastic.uri")
+@ConditionalOnProperty(prefix = "initializr", name = "stats.elastic.uri")
 class InitializrStatsAutoConfiguration {
 
 	private final StatsProperties statsProperties;
