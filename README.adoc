@@ -1,0 +1,111 @@
+= Generador de servicios Customizable
+
+Esta es una aplicación Java que genera servicios con Spring-boot, permitiendo configurar las librerias que deseamos incluir
+ así como también la estructura de la misma.
+
+== Instalación y Comienzo
+
+Para poder utilizar este proyecto debemos clonar el repo https://github.com/eriera/stack_S21.git
+
+`_git clone` https://github.com/eriera/stack_S21.git_
+
+luego cambiarse a la rama generador
+
+`git checkout generador`
+
+luego corremos el siguiente comando de Maven:
+
+`mvn clean -U install -DskipTests`
+
+Esto generará el artefacto *_initializr.jar_* en el siguiente directorio.
+
+*stack_s21/initializr-app/target*
+
+Para correr este proyecto debemos debemos posicionarnos dentro del directorio target y ejecutar el siguiente comando
+`java -jar initializr.jar`
+
+
+== Configuración del Generador
+
+Las opciones que vemos en la pantalla principal son todas configurables desde el .YML Principal.
+
+Este se encuentra en *application.yml* de *initializrApp*  *Path* → *_stack_S21/initializr-app/src/main/resources/application.yml_*
+
+  javaVersions:
+    - id: 1.8
+      default: true
+    - id: 1.11
+      default: false
+#    - id: 1.7
+#      default: false
+#    - id: 1.6
+#      default: false
+  languages:
+    - name: Java
+      id: java
+      default: true
+#    - name: Kotlin
+#      id: kotlin
+#      default: false
+#    - name: Groovy
+#      id: groovy
+#      default: false
+
+como vemos a modo de ejemplo tenemos javaVersions y languajes. Si observamos el ejemplo vemos que cuando queremos quitar
+un lenguaje o una version solo debemos comentar con el '#' o directamente sacarlo del .YML
+
+
+=== Configuración Previa para generar los Templates
+
+=== Estructuras
+
+1) Para agregar los templates tenemos que ir a este *Path* →  *_stack_S21/initializr-generator/src/main/resources/templates._*
+
+Luego agregamos el o los templates en esa carpeta. Hay que respetar si son clases tiene que tener la extension `.java.`
+
+Dentro del template tendremos el contenido de la clase.
+
+2) En el *application.yml* de *initializrApp*  *Path* → *_stack_S21/initializr-app/src/main/resources/application.yml_*
+configuramos los nombres de los templates
+
+el proyecto tiene creada la siguiente estructura de ejemplo:
+
+    layerConfig:
+        layers:
+            - layername: dao
+              classname: clase1
+              template: template1.java
+            - layername: business
+              classname: clase2
+              template: template2.java
+
+
+cada uno de los Items representa una nueva capa con su clase y el nombre del template que va a utilizar esa clase como contenido.
+
+=== Librerias
+
+El YML es un tipo de archivo Jerárquico, donde para configurar las librerias que queremos incluir debemos modificar las propiedades que estan debajo de la raiz `initializr`
+
+por Ejemplo:
+
+Si queremos agregar o quitar las librerias debemos agregarla de la siguiente manera
+
+  dependencies:
+    - name: Core
+      content:
+        - name: Security
+          id: security
+          description: Secure your application via spring-security
+          weight: 100
+          links:
+            - rel: guide
+              href: https://spring.io/guides/gs/securing-web/
+              description: Securing a Web Application
+            - rel: guide
+              href: https://spring.io/guides/tutorials/spring-boot-oauth2/
+              description: Spring Boot and OAuth2
+            - rel: guide
+              href: https://spring.io/guides/gs/authenticating-ldap/
+              description: Authenticating a User with LDAP
+            - rel: reference
+              href: http://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#boot-features-security
