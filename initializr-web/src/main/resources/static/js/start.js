@@ -336,8 +336,10 @@ $(function () {
         alignArtifactAndPackageNames();
     }
 
+    var US21 = ['web'];
     var base = ['springboot', 'spring-test', 'logging', 'spock'];
     var common = [].concat(base);
+    var commonUS21 = [].concat(US21);
     var data = ['h2', 'jdbc'];
     var data_jpa = ['data-jpa'];
     var web = ['web', 'actuator', 'payload-client', 'sba-client', 'cloud-hystrix', 'cloud-hystrix-dashboard', 'springfox', 'springfoxui', 'springfoxbean', 'restdocs', 'cloud-starter-zipkin', 'metrics'];
@@ -352,6 +354,11 @@ $(function () {
             setDefaultPackageName('org.grails.conf');
             setArtifactIdAndBaseDir('', '');
             results = starters.get([].concat(common));
+          //CREANDO PEFIL US21
+        } else if (val === 'US21') {
+                              setDefaultPackageName('org.grails.conf');
+                              setArtifactIdAndBaseDir('', '');
+                              results = starters.get([].concat(commonUS21));
         } else if (val === 'MICRO_RABBIT') {
             setDefaultPackageName('org.grails.conf.service');
             setArtifactIdAndBaseDir('rabbit-', '-service');

@@ -1230,9 +1230,9 @@ initializr:
       id: war
       default: false
   javaVersions:
-    - id: 1.8
+    - id: 8
       default: true
-    - id: 1.11
+    - id: 11
       default: false
 #    - id: 1.7
 #      default: false
@@ -1276,8 +1276,8 @@ layerConfig:
 # docker name
 docker:
   images:
-  - javaVersion: 1.8
+  - javaVersion: 8
     dockerImage: openjdk:8-jdk-alpine
-  - javaVersion: 1.11
+  - javaVersion: 11
     dockerImage: openjdk:11-jdk
 
