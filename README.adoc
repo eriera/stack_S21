@@ -1,4 +1,4 @@
-= Generador de servicios Customizable
+= Generador Customizable de Servicios
 
 Esta es una aplicación Java que genera servicios con Spring-boot, permitiendo configurar las librerias que deseamos incluir
  así como también la estructura de la misma.
@@ -109,3 +109,12 @@ Si queremos agregar o quitar las librerias debemos agregarla de la siguiente man
               description: Authenticating a User with LDAP
             - rel: reference
               href: http://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#boot-features-security
+
+=== Combo de configuración Rápida
+
+En la pantalla principal observamos *Project Type*. En esta parte de la pantalla nos encontramos con
+un combo en donde podemos seleccionar y preseter un grupo de dependencias ya definidas.
+
+Estas dependencias se arman en un javascript en el proyecto PATH -->  `/stack_S21/initializr-web/src/main/resources/static/js/start.js`
+
+Dentro del mismo encontramos un Array en el cual vamos agregando y preseteando la configuración del combo.
