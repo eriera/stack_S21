@@ -1233,13 +1233,9 @@ initializr:
       default: false
   javaVersions:
     - id: 8
-      default: true
-    - id: 11
       default: false
-#    - id: 1.7
-#      default: false
-#    - id: 1.6
-#      default: false
+    - id: 11
+      default: true
   languages:
     - name: Java
       id: java
@@ -1261,20 +1257,22 @@ initializr:
       id: 1.1.12.RELEASE
       default: false
   groupId:
-    value: com.ues21.edu
+    value: com.us21.edu
     # Configuración de Nombres de capas, clases y templates.
 layerConfig:
   layers:
-  - layername: dao
-    classname: clase1
-    template: template1.java
-  - layername: business
-    classname: clase2
-    template: template2.java
-#  - layername: capa3
-#    classname: clase3
-#  - layername: capa4
-#    classname: clase4
+  - layername: config
+    classname: SwaggerConfig
+    template: templateSwaggerConfig.java    
+  - layername: constants
+  - layername: controller
+    classname: EjemploController
+    template: templateController.java
+  - layername: dao     
+  - layername: model
+  - layername: repository    
+  - layername: service  
+  - layername: util    
 # docker name
 docker:
   images:

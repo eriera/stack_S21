@@ -188,7 +188,7 @@ $(function () {
             });
             engine.add(data.dependencies);
             if (!initialLoad) {
-                $("#archetype").val('MICRO').trigger('change').blur();
+                $("#archetype").val('CUSTOM').trigger('change').blur();
                 initialLoad = true;
             }
         });
@@ -336,14 +336,12 @@ $(function () {
         alignArtifactAndPackageNames();
     }
 
-    var US21 = ['web'];
     var base = ['springboot', 'spring-test', 'logging', 'spock'];
     var common = [].concat(base);
-    var commonUS21 = [].concat(US21);
-    var data = ['h2', 'jdbc'];
-    var data_jpa = ['data-jpa'];
+    var apirest = ['data-jpa','data-rest','springfox', 'springfoxui'];
+    var apimongo = ['web','springfox', 'springfoxui'];     
     var web = ['web', 'actuator', 'payload-client', 'sba-client', 'cloud-hystrix', 'cloud-hystrix-dashboard', 'springfox', 'springfoxui', 'springfoxbean', 'restdocs', 'cloud-starter-zipkin', 'metrics'];
-    var all = [].concat(web, _toConsumableArray(common), data, data_jpa);
+    var all = [].concat(web, _toConsumableArray(common));
 
     $("#archetype").on("change", function () {
         $("#starters div").remove();
@@ -354,23 +352,14 @@ $(function () {
             setDefaultPackageName('org.grails.conf');
             setArtifactIdAndBaseDir('', '');
             results = starters.get([].concat(common));
-          //CREANDO PEFIL US21
-        } else if (val === 'US21') {
-                              setDefaultPackageName('org.grails.conf');
-                              setArtifactIdAndBaseDir('', '');
-                              results = starters.get([].concat(commonUS21));
-        } else if (val === 'MICRO_RABBIT') {
-            setDefaultPackageName('org.grails.conf.service');
-            setArtifactIdAndBaseDir('rabbit-', '-service');
-            results = starters.get(['cloud-stream-binder-rabbit'].concat(_toConsumableArray(all)));
-        } else if (val === 'MICRO_KAFKA') {
-            setDefaultPackageName('org.grails.conf.service');
-            setArtifactIdAndBaseDir('kafka-', '-service');
-            results = starters.get(['cloud-stream-binder-kafka'].concat(_toConsumableArray(all)));
-        } else if (val === 'MICRO') {
+        } else if (val === 'APIREST') {
             setDefaultPackageName('org.grails.conf.service');
             setArtifactIdAndBaseDir('', '-service');
-            results = starters.get([].concat(_toConsumableArray(all)));
+            results = starters.get([].concat(_toConsumableArray(apirest)));
+        } else if (val === 'APIMONGO') {
+            setDefaultPackageName('org.grails.conf');
+            setArtifactIdAndBaseDir('', '');
+            results = starters.get([].concat(apimongo));
         } else if (val === "APP_WEB_DATA") {
             setDefaultPackageName('org.grails.conf');
             setArtifactIdAndBaseDir('app-', '');
