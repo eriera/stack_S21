@@ -256,9 +256,9 @@ public class ProjectGenerator {
 		File resources = new File(dir, "src/main/resources");
 		resources.mkdirs();
 
-		if(request.isInitExample()) {
+
 			generateLayers(dir, model, request);
-		}
+
 
 
         write(new File(resources, "application.yml"), "application.yml", model);
@@ -354,7 +354,10 @@ public class ProjectGenerator {
 					File src = new File(new File(dir, "src/main/java/" +
 							request.getPackageName().replace(".", "/")),p.getLayername());
 					src.mkdirs();
-					write(new File(src, p.getClassname() + ".java"), p.getTemplate(), newMap);
+					if(request.isInitExample()&& p.getClassname()!=null) {
+						write(new File(src, p.getClassname() + ".java"), p.getTemplate(), newMap);
+					}
+
 				});
 
 	}
@@ -695,7 +698,7 @@ public class ProjectGenerator {
 	private String getDockerImage(String javaVersion){
 		String dockerImageResult;
 		switch (javaVersion) {
-			case "1.8" : dockerImageResult = images.getImages().stream()
+			case "8" : dockerImageResult = images.getImages().stream()
 					.filter(z -> z.getJavaVersion().equals(javaVersion))
 					.map(p -> p.getDockerImage())
 					.findAny()
@@ -710,7 +713,7 @@ public class ProjectGenerator {
 					.map(p -> p.getDockerImage())
 					.findAny()
 					.get();break;
-			case "1.11" : dockerImageResult = images.getImages().stream()
+			case "11" : dockerImageResult = images.getImages().stream()
 					.filter(z -> z.getJavaVersion().equals(javaVersion))
 					.map(p -> p.getDockerImage())
 					.findAny()
