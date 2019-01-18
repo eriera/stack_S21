@@ -338,7 +338,7 @@ $(function () {
 
     var base = ['springboot', 'spring-test', 'logging', 'spock'];
     var common = [].concat(base);
-    var apirest = ['data-jpa','data-rest','springfox', 'springfoxui'];
+    var apirest = ['data-rest','data-jpa','postgresql', 'springfox', 'springfoxui'];
     var apimongo = ['web','springfox', 'springfoxui'];     
     var web = ['web', 'actuator', 'payload-client', 'sba-client', 'cloud-hystrix', 'cloud-hystrix-dashboard', 'springfox', 'springfoxui', 'springfoxbean', 'restdocs', 'cloud-starter-zipkin', 'metrics'];
     var all = [].concat(web, _toConsumableArray(common));

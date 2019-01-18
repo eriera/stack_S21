@@ -17,7 +17,7 @@ public class {{className}} {
     public Docket api() { 
         return new Docket(DocumentationType.SWAGGER_2)  
           .select()                                  
-          .apis(RequestHandlerSelectors.basePackage("*.controller"))              
+          .apis(RequestHandlerSelectors.basePackage("{{basePackageName}}.controller"))              
           .paths(PathSelectors.any())                          
           .build();                                           
     }	

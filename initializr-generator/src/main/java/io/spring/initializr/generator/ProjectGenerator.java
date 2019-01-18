@@ -350,6 +350,7 @@ public class ProjectGenerator {
 				.forEach(p->{
 					Map<String,Object> newMap = new HashMap<>();
 					newMap.put("className",p.getClassname());
+					newMap.put("basePackageName",model.get("packageName"));
 					newMap.put("packageName",model.get("packageName") + "." + p.getLayername());
 					File src = new File(new File(dir, "src/main/java/" +
 							request.getPackageName().replace(".", "/")),p.getLayername());

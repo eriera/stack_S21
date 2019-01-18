@@ -1174,19 +1174,19 @@ initializr:
           artifactId: springfox-swagger2
           id: springfox
           description: Spring fox swagger core libs
-          version: 2.7.0
+          version: 2.9.2
         - name: Spring Fox Swagger UI
           groupId: io.springfox
           artifactId: springfox-swagger-ui
           id: springfoxui
           description: Spring fox swagger ui
-          version: 2.7.0
+          version: 2.9.2
         - name: Spring Fox Validators
           groupId: io.springfox
           artifactId: springfox-bean-validators
           id: springfoxbean
           description: Spring fox swagger support for javax.validation
-          version: 2.7.0
+          version: 2.9.2
   types:
     - name: Maven Project
       id: maven-project
