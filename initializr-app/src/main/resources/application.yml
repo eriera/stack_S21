@@ -1262,15 +1262,27 @@ initializr:
 layerConfig:
   layers:
   - layername: config
-    classname: SwaggerConfig
+    classname: EjemploSwaggerConfig
     template: templateSwaggerConfig.java    
   - layername: constants
+    classname: EjemploConstants
+    template: templateEjemploConstants.java   
   - layername: controller
     classname: EjemploController
     template: templateController.java
   - layername: dao     
   - layername: model
-  - layername: repository    
+    classname: EjemploDetailModel
+    template: templateEjemploDetailModel.java
+  - layername: model
+    classname: EjemploMasterModel
+    template: templateEjemploMasterModel.java    
+  - layername: repository 
+    classname: EjemploMasterRepository
+    template: templateEjemploMasterRepository.java
+  - layername: repository 
+    classname: EjemploDetailRepository
+    template: templateEjemploDetailRepository.java  
   - layername: service  
   - layername: util    
 # docker name

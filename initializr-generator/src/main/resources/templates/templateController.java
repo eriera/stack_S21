@@ -13,10 +13,10 @@ public class {{className}}  {
 //	@Autowired
 //	private EjemploMasterRepository repository;
 	
-	@GetMapping("/detail")
-	public List<String> retriveDetail(){
+	@GetMapping("/")
+	public List<String> dummyResponse(){
 		List<String> result = new ArrayList<String>();
-		result.add("Ejemplo");
+		result.add("Dummy");
 		return result;
 	}
 		
