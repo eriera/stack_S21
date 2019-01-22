@@ -166,6 +166,26 @@ public class ProjectGenerator {
 	}
 
 	/**
+	 * Generate a Maven pom for the specified {@link ProjectRequest}.
+	 */
+	public byte[] generateReadme(ProjectRequest request) {
+		try {
+			Map<String, Object> model = resolveModel(request);
+//			if (!isMavenBuild(request)) {
+//				throw new InvalidProjectRequestException("Could not generate Maven pom, "
+//						+ "invalid project type " + request.getType());
+//			}
+			byte[] content = doGenerateReadme(model);
+			publishProjectGeneratedEvent(request);
+			return content;
+		}
+		catch (InitializrException ex) {
+			publishProjectFailedEvent(request, ex);
+			throw ex;
+		}
+	}
+
+	/**
 	 * Generate a Gradle build file for the specified {@link ProjectRequest}.
 	 */
 	public byte[] generateGradleBuild(ProjectRequest request) {
@@ -225,6 +245,12 @@ public class ProjectGenerator {
 			String pom = new String(doGenerateMavenPom(model));
 			writeText(new File(dir, "pom.xml"), pom);
 			writeMavenWrapper(dir);
+			/**
+			 * Generando Readme
+			 */
+			String doc = new String(doGenerateReadme(model));
+			writeText(new File(dir, "Readme.md"), doc);
+
 		}
 
 		generateGitIgnore(dir, request);
@@ -598,6 +624,10 @@ public class ProjectGenerator {
 
 	private byte[] doGenerateMavenPom(Map<String, Object> model) {
 		return templateRenderer.process("starter-pom.xml", model).getBytes();
+	}
+
+	private byte[] doGenerateReadme(Map<String, Object> model) {
+		return templateRenderer.process("Readme.md", model).getBytes();
 	}
 
 	private byte[] doGenerateGradleBuild(Map<String, Object> model) {
