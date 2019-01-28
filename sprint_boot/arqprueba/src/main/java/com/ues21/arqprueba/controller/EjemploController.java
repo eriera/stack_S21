@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ues21.arqprueba.model.EjemploDetail;
@@ -36,9 +37,9 @@ public class EjemploController {
 	}
 
 	
-	@PostMapping("/ejemploMaster/fechas")
-	public List<EjemploMaster> getEjemploMasterbyFechas(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)Date fechaDesde, 
-			@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)Date fechaHasta) {
+	@PostMapping("/ejemploMaster/dates")
+	public List<EjemploMaster> getEjemploMasterbyFechas(@RequestParam("fechaDesde") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) Date fechaDesde, 
+			@RequestParam("fechaHasta") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) Date fechaHasta) {
 		
 		return ejemploMasterService.getMasterByFechas(fechaDesde, fechaHasta);
 	}	
