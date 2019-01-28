@@ -1269,8 +1269,7 @@ layerConfig:
     template: templateEjemploConstants.java   
   - layername: controller
     classname: EjemploController
-    template: templateController.java
-  - layername: dao     
+    template: templateController.java   
   - layername: model
     classname: EjemploDetailModel
     template: templateEjemploDetailModel.java
@@ -1282,8 +1281,19 @@ layerConfig:
     template: templateEjemploMasterRepository.java
   - layername: repository 
     classname: EjemploDetailRepository
-    template: templateEjemploDetailRepository.java  
+    template: templateEjemploDetailRepository.java
+  - layername: repository 
+    classname: EjemploMasterRepositoryExtended
+    template: templateEjemploMasterRepositoryExtended.java    
+  - layername: repository/impl 
+    classname: EjemploMasterRepositoryExtendedImpl
+    template: templateEjemploMasterRepositoryExtendedImpl.java        
   - layername: service  
+    classname: EjemploDetailService
+    template: templateEjemploDetailService.java
+  - layername: service  
+    classname: EjemploMasterService
+    template: templateEjemploMasterService.java      
   - layername: util    
 # docker name
 docker:

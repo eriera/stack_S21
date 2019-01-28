@@ -12,8 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 public class {{className}} {
 	
@@ -28,7 +26,6 @@ public class {{className}} {
     private Date atributoFecha;
     
     @OneToMany(mappedBy="ejMaster", fetch=FetchType.LAZY)
-    @JsonIgnore
     private List<EjemploDetailModel> EjemploDetailModels;
 
     protected EjemploMasterModel() {}
