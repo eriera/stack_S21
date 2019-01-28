@@ -7,6 +7,6 @@ import com.ues21.arqprueba.model.EjemploMaster;
 
 public interface EjemploMasterRepositoryExtended {
 	
-	List<EjemploMaster> getMasterByFecha(Date Fecha);
+	List<EjemploMaster> getMasterByFechas(Date fechaDesde, Date fechaHasta);
 
 }

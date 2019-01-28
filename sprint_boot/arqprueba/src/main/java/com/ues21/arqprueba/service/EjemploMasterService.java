@@ -10,17 +10,25 @@ import com.ues21.arqprueba.model.EjemploMaster;
 import com.ues21.arqprueba.repository.EjemploMasterRepository;
 
 @Service
-public class EjemploService{
+public class EjemploMasterService{
 	
 	@Autowired
 	EjemploMasterRepository ejemploMasterRepository;
 	
-	public List<EjemploMaster> getMasterByFecha(Date fecha) {
-		return ejemploMasterRepository.getMasterByFecha(fecha);
+	public List<EjemploMaster> getMasterByFechas(Date fechaDesde, Date fechaHasta) {
+		return ejemploMasterRepository.getMasterByFechas(fechaDesde,fechaHasta);
 	}
 	
 	public EjemploMaster getEjemploMasterById(Long ejemploMasterId){
 		return ejemploMasterRepository.findById(ejemploMasterId).orElse(null);
+	}
+	
+	public List<EjemploMaster> getAllEjemploMaster(){
+		return ejemploMasterRepository.findAll();
+	}
+	
+	public EjemploMaster save(EjemploMaster ejemploMaster) {
+		return ejemploMasterRepository.save(ejemploMaster);
 	}
 
 }
