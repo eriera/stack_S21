@@ -373,11 +373,11 @@ public class ProjectGenerator {
 
 	protected void generateLayers(File dir, Map<String, Object> model, ProjectRequest request){
 		layers.getLayers().stream()
-				.forEach(p->{
+				.forEach(p->{					
 					Map<String,Object> newMap = new HashMap<>();
 					newMap.put("className",p.getClassname());
 					newMap.put("basePackageName",model.get("packageName"));
-					newMap.put("packageName",model.get("packageName") + "." + p.getLayername());
+					newMap.put("packageName",model.get("packageName") + "." + p.getLayername().replace("/", "."));
 					File src = new File(new File(dir, "src/main/java/" +
 							request.getPackageName().replace(".", "/")),p.getLayername());
 					src.mkdirs();
